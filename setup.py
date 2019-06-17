@@ -11,6 +11,7 @@ setup(
             "halo",
             "pytest",
             "pytest-cov",
+            "coverage",
             "coveralls",
     ],
     entry_points="""
