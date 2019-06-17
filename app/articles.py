@@ -38,5 +38,21 @@ def get(slug):
         click.echo(response.json())
 
 
+@main.command()
+@click.option("--limit",)
+def get_limit(limit):
+    """
+       This returns all the articles form Authors Haven API
+    """
+    url_format = url + "/articles/feed/"
+    spinner.start()
+    response = requests.get(url_format)
+    spinner.stop()
+    spinner.clear()
+    spinner.succeed("Done fetching articles ✅")
+    click.echo("Status code: {}".format(response.status_code))
+    click.echo(response.json())
+
+
 if __name__ == "__main__":
     main()
