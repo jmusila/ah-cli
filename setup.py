@@ -10,7 +10,7 @@ setup(
             "requests",
             "halo",
             "pytest",
-            "pytest-cov",
+            "pytest-cov>=2.4.0",
             "coverage",
             "coveralls",
     ],
