@@ -22,24 +22,21 @@ def get(slug):
     """
         This return a particular article from the given slug on Authors Haven API
     """
-    spinner.start()
-    url_format = url+"/{}/"
-    spinner.stop()
-    spinner.clear()
+    url_format = url + "/articles/{}/"
     click.echo(slug)
 
-    response = requests.get(url_format.format(slug))
-
-    click.echo(response.json())
-
-
-@main.command()
-@click.argument("limit")
-def get_all_articles(limit):
-    """
-       This returns all the articles form Authors Haven API
-    """
     spinner.start()
-    url_format = url + "/articles/feed/"
-    spinner.start
-    spinner.clear
+    response = requests.get(url_format.format(slug))
+    spinner.stop()
+    spinner.clear()
+    if response.status_code == 404:
+        spinner.warn("Not found ❎")
+        click.echo("Status code: {}".format(response.status_code))
+    elif response.status_code == 200:
+        spinner.succeed("Article found ✅")
+        click.echo("Status code: {}".format(response.status_code))
+        click.echo(response.json())
+
+
+if __name__ == "__main__":
+    main()
