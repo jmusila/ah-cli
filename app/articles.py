@@ -11,7 +11,7 @@ url = "https://ah-django-staging.herokuapp.com/api"
 @click.group()
 def main():
     """
-        Simple CLI for consuming Authors Haven App
+        Simple CLI for consuming Authors Haven App 😍
     """
     pass
 
@@ -30,7 +30,7 @@ def get(slug):
     spinner.stop()
     spinner.clear()
     if response.status_code == 404:
-        spinner.warn("Not found ❎")
+        spinner.warn("Article with that slug not found ❎")
         click.echo("Status code: {}".format(response.status_code))
     elif response.status_code == 200:
         spinner.succeed("Article found ✅")
@@ -39,8 +39,8 @@ def get(slug):
 
 
 @main.command()
-@click.option("--limit",)
-def get_limit(limit):
+@click.option("--articles",)
+def get_list(articles):
     """
        This returns all the articles form Authors Haven API
     """
