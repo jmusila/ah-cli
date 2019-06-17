@@ -8,6 +8,7 @@ setup(
         install_requires=[
             "Click",
             "requests",
+            "halo",
             ],
         entry_points="""
         [console_scripts]
