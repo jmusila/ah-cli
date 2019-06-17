@@ -9,6 +9,9 @@ setup(
             "Click",
             "requests",
             "halo",
+            "pytest",
+            "pytest-cov",
+            "coveralls",
     ],
     entry_points="""
         [console_scripts]
