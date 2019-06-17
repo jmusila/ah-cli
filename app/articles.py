@@ -13,7 +13,6 @@ def main():
     """
         Simple CLI for consuming Authors Haven App 😍
     """
-    pass
 
 
 @main.command()
@@ -52,7 +51,3 @@ def get_list(articles):
     spinner.succeed("Done fetching articles ✅")
     click.echo("Status code: {}".format(response.status_code))
     click.echo(response.json())
-
-
-if __name__ == "__main__":
-    main()
