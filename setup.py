@@ -13,6 +13,7 @@ setup(
             "pytest-cov>=2.4.0,<2.6",
             "coverage",
             "coveralls",
+            "pandas",
     ],
     entry_points="""
         [console_scripts]

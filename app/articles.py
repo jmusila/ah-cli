@@ -1,8 +1,9 @@
-import sys
 import requests
 import click
+import pandas as pd
 
 from halo import Halo
+from pandas.io.json import json_normalize
 
 spinner = Halo(text='Loading', spinner='dots', text_color='magenta')
 url = "https://ah-django-staging.herokuapp.com/api"
@@ -16,8 +17,9 @@ def main():
 
 
 @main.command()
+@click.option("--csv")
 @click.argument("slug")
-def get(slug):
+def get(slug, csv):
     """
         This return a particular article from the given slug on Authors Haven API
     """
@@ -35,6 +37,9 @@ def get(slug):
         spinner.succeed("Article found ✅")
         click.echo("Status code: {}".format(response.status_code))
         click.echo(response.json())
+    if csv:
+        df = json_normalize(response.json())
+        df.to_csv('articles.csv')
 
 
 @main.command()

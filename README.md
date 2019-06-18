@@ -4,5 +4,20 @@
 
 - This is a command line application consuming an API
 
+#### running and using the app
+ - $ git clone `https://github.com/jonathanmusila/ah-cli.git`
 
+ - create a virtual environment `$ virtualenv env`
+
+ - activate the virtual environment `$ source env/bin/activate`
+
+ - run installation of dependancies `$ pip install --editable .`
+
+ - run the application `$ ah`
+
+ - use the comands listed to test the app 
+
+ ``` smile...it's now running✅  😃😊😀```
+
+#### Author: Jonathan Musila
 
